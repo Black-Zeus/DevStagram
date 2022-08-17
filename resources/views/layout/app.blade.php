@@ -4,9 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <title>DevStagram - @yield('Title')</title>
     @vite('resources/css/app.css')
+    <script src="{{ asset('js/app.js') }}"></script>
 
 </head>
 
@@ -18,7 +19,7 @@
             </h1>
             <nav class="flex gap-2 items-center">
                 <a class="font-bold uppercase text-gray-600 text-sm" href="#">Login</a>
-                <a class="font-bold uppercase text-gray-600 text-sm" href="/create">Create</a>
+                <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route("register") }}">Create</a>
             </nav>
         </div>
     </header>
@@ -31,7 +32,7 @@
         @yield('Contenido')
     </main>
 
-    <footer class="text-center p-5 text-gray-500 font-bold uppercase">
+    <footer class="mt-10 text-center p-5 text-gray-500 font-bold uppercase">
         DevStagram - Todos los derechos reservados {{ now()->year }}
     </footer>
 
