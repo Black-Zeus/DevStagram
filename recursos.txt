@@ -1,3 +1,10 @@
+recuperar compose
+    composer update
+
+Recuperar npm
+    npm update
+
+
 iconos:
     https://heroicons.com
 

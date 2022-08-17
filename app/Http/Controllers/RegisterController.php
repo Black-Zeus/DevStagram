@@ -47,6 +47,6 @@ class RegisterController extends Controller
         //Forma2
         auth()->attempt($request->only('email', 'password'));
 
-        return redirect()->route("posts.index");
+        return redirect()->route("posts.index", auth()->user()->username);
     }
 }
