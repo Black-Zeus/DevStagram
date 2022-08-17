@@ -1,0 +1,8 @@
+iconos:
+    https://heroicons.com
+
+DropZone:
+    https://www.dropzone.dev/js/
+
+PHP Image Manipulation
+    https://image.intervention.io/v2
