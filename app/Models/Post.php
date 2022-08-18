@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Comentario;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
@@ -18,6 +19,13 @@ class Post extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class)->select(['id', 'name', 'username','email']);
+        return $this->belongsTo(User::class)->select(['id', 'name', 'username', 'email']);
     }
+
+    public function comentarios()
+    {
+        return $this->hasMany(Comentario::class);
+    }
+
+    
 }

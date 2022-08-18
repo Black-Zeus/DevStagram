@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\File;
 
 class PostController extends Controller
 {
@@ -50,8 +51,21 @@ class PostController extends Controller
         // return view("posts.create");
     }
 
-    public function show(User $user,Post $post)
+    public function show(User $user, Post $post)
     {
         return view("posts.show", ['post' => $post, 'user' => $user]);
+    }
+
+    public function destroy(Post $post)
+    {
+        $this->authorize('delete', $post); //Ejecuto una policy para determinar si el usuario es dueño del post
+        $post->delete(); // si es el dueño, entonces lo elimino
+
+        $img_path = public_path('uploads/' . $post->imagen);
+        if(File::exists($img_path)){
+            unlink($img_path);
+        }
+
+        return redirect()->route('posts.index', auth()->user()->username);
     }
 }
